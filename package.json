@@ -2,7 +2,10 @@
   "name": "savvy-spa-starter",
   "version": "1.0.1",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "parcel-build": "parcel build index.html && cp _redirects ./dist/",
+    "serve": "parcel index.html"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,5 +15,8 @@
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "1.19.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "html-literal": "^1.1.0",
+    "parcel": "^2.9.3"
+  }
 }
