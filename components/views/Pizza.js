@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default state =><section id="pizza">
+export default () =>html`<section id="pizza">
     <table id="pizzas">
       <tr>
         <th>Crust</th>
@@ -10,4 +10,4 @@ export default state =><section id="pizza">
         <th>Customer</th>
       </tr>
     </table>
-  </section>
+  </section>`;
