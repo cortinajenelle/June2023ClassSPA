@@ -1,3 +1,3 @@
 import html from "html-literal";
 
-export default state => html`${views[state.view](state)}';
+export default state => html`${views[state.view](state)}`;

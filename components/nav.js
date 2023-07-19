@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default state =><nav>
+export default state =>html`<nav>
 <i class="fas fa-bars"></i>
 <ul class="hidden--mobile nav-links">
   <li><a href="index.html">Home</a></li>
@@ -8,4 +8,4 @@ export default state =><nav>
   <li><a href= "pizza.html">Pizza</a></li>
   <li><a href= "order.html">Order</a></li>
 </ul>
-</nav>
+</nav>`
