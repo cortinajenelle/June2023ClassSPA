@@ -1,3 +1,5 @@
+// This is a practice SPA.
+
 Use this repository to start class for the lesson 6.1
 
 
