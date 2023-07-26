@@ -83,18 +83,19 @@ router.hooks({
     render(store[view]);
   }
 });
-router
-  .on({
-    "/": () => render(store.Home),
-    ":view": params => {
-      let view = capitalize(params.data.view);
+router.on(
+    
+  {
+    "/": () => render(), 
+    ":view": (params) => {
+              let view = capitalize(params.data.view);
+              if (view in store) {
+                render(store[view]);
+              } else {
+                console.log(`View ${view} not defined`);
+                render(store.Viewnotfound);
+              }
+            },
+    },
 
-      if (store.hasOwnProperty(view)) {
-        render(store[view]);
-      } else {
-        render(store.Viewnotfound);
-        console.log(`View ${view} not defined`);
-      }
-    }
-  })
-  .resolve();
+).resolve();
