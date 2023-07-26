@@ -31,7 +31,8 @@ router.hooks({
       params && params.data && params.data.view
         ? capitalize(params.data.view)
         : "Home";
-        case "Home":
+        switch (view) {
+          case "Home":
           axios
             .get(
               `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=st%20louis`
@@ -53,11 +54,11 @@ router.hooks({
             done();
           });
           break;
-    switch (view) {
+
       case "Pizza":
         // New Axios get request utilizing already made environment variable
         axios
-          .get(`https://sc-pizza-api.onrender.com/pizzas`)
+          .get(`${process.env.PIZZA_PLACE_API_URL}/pizzas`)
           .then(response => {
             // We need to store the response to the state, in the next step but in the meantime let's see what it looks like so that we know what to store from the response.
             console.log("response", response);
@@ -82,19 +83,19 @@ router.hooks({
     render(store[view]);
   }
 });
+router.on(
+    
+  {
+    "/": () => render(), 
+    ":view": (params) => {
+              let view = capitalize(params.data.view);
+              if (view in store) {
+                render(store[view]);
+              } else {
+                console.log(`View ${view} not defined`);
+                render(store.Viewnotfound);
+              }
+            },
+    },
 
-router
-  .on({
-    "/": () => render(store.Home),
-    ":view": params => {
-      let view = capitalize(params.data.view);
-
-      if (store.hasOwnProperty(view)) {
-        render(store[view]);
-      } else {
-        render(store.Viewnotfound);
-        console.log(`View ${view} not defined`);
-      }
-    }
-  })
-  .resolve();
+).resolve();
