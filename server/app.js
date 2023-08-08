@@ -1,5 +1,4 @@
 // 'Import' the Express module instead of http
-import mongoose from 'mongoose';
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from 'mongoose';
