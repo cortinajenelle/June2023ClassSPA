@@ -1,11 +1,8 @@
 import mongoose from "mongoose";
 import { Router } from  'express';
 import Pizza from '../models/Pizza.js';
-import pizzas from "./routers/pizzas.js";
 
 const router = Router();
-
-export default router;
 
 const pizzaSchema = new mongoose.Schema({
   customer: {
@@ -34,3 +31,5 @@ const pizzaSchema = new mongoose.Schema({
 const Pizza = mongoose.model("Pizza", pizzaSchema);
 
 export default Pizza;
+
+export default router;
